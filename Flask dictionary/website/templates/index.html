@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+  <div class="search-box fixed-search-box" class="container">
+    <form method="post" action="/searchword">
+        <h1>ಕನ್ನಡ ಏಕಭಾಷಿಕ ನಿಘಂಟು-Kannada Monolingual Dictionary</h1>
+        <input type="text" id="search-input" name="title" placeholder="Type word to search">
+        <button id="search-button" class="btn-primary">Search</button>
+    </form>
+  </div>
+  <div class="result-box">
+    {% if words %}
+    {% for title in words %}
+    <div class="container">
+      <div id="title"><h2>{{title}}</h2></div>
+      <div id="definition"><p>{{words[title]}}</p></div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  <div>
+{% endblock body %}
+    
